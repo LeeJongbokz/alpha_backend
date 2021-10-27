@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="alpha.alpha.mapper.UserMapper">
+
+    <select id="isExistsEmail" resultType="boolean">
+        SELECT EXISTS
+        (SELECT id FROM USER WHERE email = #{email})
+    </select>
+
+    <insert id="insertUser" parameterType="alpha.alpha.dto.UserDTO">
+        INSERT INTO USER(id, name, email, password)
+        VALUES(#{id}, #{name}, #{email}, #{password})
+    </insert>
+
+
+</mapper>
+
