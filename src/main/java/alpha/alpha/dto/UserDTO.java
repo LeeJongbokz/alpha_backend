@@ -14,6 +14,10 @@ public class UserDTO {
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
 
+    public String getEmail(){
+        return email;
+    }
+
     public static class Builder {
 
         private String id;
