@@ -3,20 +3,18 @@ package alpha.alpha.controller;
 import alpha.alpha.dto.UserDTO;
 import alpha.alpha.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 public class UserController {
 
     private UserService userService;
 
-    @PostMapping
-    public void signUp(UserDTO user){
-        System.out.println("hello");
+    @PostMapping("/signup")
+    public UserDTO signUp(@RequestBody UserDTO user){
         userService.signUp(user);
+        return user;
     }
 }
